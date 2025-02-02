@@ -1,6 +1,14 @@
 # API de Bloco de Notas
 
-Esta é uma API para um bloco de notas simples, construída usando Laravel. A API permite aos usuários autenticados criar, ler, atualizar e deletar notas.
+Esta é uma API para um bloco de notas simples, construída usando Laravel. A API permite aos usuários autenticados criar, ler, atualizar e deletar notas. Também oferece funcionalidades de registro, login e gerenciamento de contas de usuário com autenticação via JWT.
+
+## Aplicativo Java
+
+Este repositório também inclui um aplicativo Java que consome a API de Bloco de Notas. O aplicativo permite que você interaja com a API de maneira simples e eficiente.
+
+- **Repositório do Aplicativo Java:** [Clique aqui para acessar o repositório](https://github.com/iCrowleySHR/notepad.git)
+
+
 
 ## Requisitos
 
@@ -10,6 +18,7 @@ Esta é uma API para um bloco de notas simples, construída usando Laravel. A AP
 - MySQL
 
 ## Instalação
+
 1. Instale as dependências:
     ```bash
     composer install
@@ -26,12 +35,17 @@ Esta é uma API para um bloco de notas simples, construída usando Laravel. A AP
     ```bash
     php artisan migrate
     ```
-6. Instale o pacote JWT Auth:
+
+5. Instale o pacote JWT Auth:
     ```bash
     composer require tymon/jwt-auth
     php artisan jwt:secret
     ```
-    
+
+## Endpoints
+
+### Usuários
+
 #### Registrar Usuário
 
 - **URL:** `http://localhost/api_notepad/public/api/v1/users/`
@@ -45,7 +59,7 @@ Esta é uma API para um bloco de notas simples, construída usando Laravel. A AP
     {
         "name": "John Doe",
         "email": "john@example.com",
-        "password": "password",
+        "password": "password"
     }
     ```
 - **Resposta de Sucesso:**
@@ -83,6 +97,55 @@ Esta é uma API para um bloco de notas simples, construída usando Laravel. A AP
     }
     ```
 
+#### Atualizar Usuário
+
+- **URL:** `http://localhost/api_notepad/public/api/v1/users/`
+- **Método:** `PUT`
+- **Cabeçalho:**
+  - `Authorization`: `Bearer {seu_token_jwt}`
+- **Parâmetros:**
+  - `name`: Nome do usuário
+  - `telephone`: Telefone
+  - `email`: Email
+  - `new_password`: Nova senha (se for trocar a senha)
+  - `current_password`: Senha atual (necessária para troca de senha)
+- **Exemplo de Request:**
+    ```json
+    {
+        "name": "João da Silva",
+        "telephone": "123456789",
+        "email": "joao@example.com",
+        "new_password": "newpassword",
+        "current_password": "oldpassword"
+    }
+    ```
+
+#### Deletar Usuário
+
+- **URL:** `http://localhost/api_notepad/public/api/v1/users/`
+- **Método:** `DELETE`
+- **Cabeçalho:**
+  - `Authorization`: `Bearer {seu_token_jwt}`
+- **Resposta de Sucesso:**
+    ```json
+    {
+        "success": "Conta apagada com sucesso."
+    }
+    ```
+
+#### Logout
+
+- **URL:** `http://localhost/api_notepad/public/api/v1/users/logout`
+- **Método:** `POST`
+- **Cabeçalho:**
+  - `Authorization`: `Bearer {seu_token_jwt}`
+- **Resposta de Sucesso:**
+    ```json
+    {
+        "success": "Logout bem sucedido."
+    }
+    ```
+
 ### Notas
 
 #### Listar Notas
@@ -113,19 +176,19 @@ Esta é uma API para um bloco de notas simples, construída usando Laravel. A AP
 - **Parâmetros:**
   - `title`: Título da nota
   - `content`: Conteúdo da nota
-   - `id_user`: Usuário que criou a nota
+  - `id_user`: Usuário que criou a nota
 - **Exemplo de Request:**
     ```json
     {
         "title": "Minha Primeira Nota",
-        "content": "Conteúdo da nota"
-        "id_user": "Usuário que criou a nota (1)"
+        "content": "Conteúdo da nota",
+        "id_user": "1"
     }
     ```
 - **Resposta de Sucesso:**
     ```json
     {
-        "success": "Anotação salva!."
+        "success": "Anotação salva!"
     }
     ```
 
@@ -137,16 +200,13 @@ Esta é uma API para um bloco de notas simples, construída usando Laravel. A AP
   - `Authorization`: `Bearer {seu_token_jwt}`
 - **Resposta de Sucesso:**
     ```json
-    [
-        {
-            "id": 12,
-            "title": "Minha Amada",
-            "content": "não existe",
-            "id_user": 3,
-            "created_at": "2024-05-16T00:19:43.000000Z",
-            "updated_at": "2024-05-16T00:19:43.000000Z"
-        }
-    ]
+    {
+        "id": 1,
+        "title": "Minha Primeira Nota",
+        "content": "Conteúdo da nota",
+        "created_at": "2023-05-15T14:00:00.000000Z",
+        "updated_at": "2023-05-15T14:00:00.000000Z"
+    }
     ```
 
 #### Atualizar Nota
@@ -165,17 +225,6 @@ Esta é uma API para um bloco de notas simples, construída usando Laravel. A AP
         "content": "Conteúdo atualizado da nota"
     }
     ```
-- **Resposta de Sucesso:**
-    ```json
-    {
-        "id": 3,
-        "title": "Quero",
-        "content": "Minha casa!",
-        "id_user": 1,
-        "created_at": "2024-05-07T22:32:25.000000Z",
-        "updated_at": "2024-05-16T00:32:01.000000Z"
-    }
-    ```
 
 #### Deletar Nota
 
@@ -189,3 +238,29 @@ Esta é uma API para um bloco de notas simples, construída usando Laravel. A AP
         "success": "Nota apagada"
     }
     ```
+
+#### Pesquisar Notas
+
+- **URL:** `/api/notes/search/{title}`
+- **Método:** `GET`
+- **Cabeçalho:**
+  - `Authorization`: `Bearer {seu_token_jwt}`
+- **Parâmetros:**
+  - `title`: Título da nota (pode ser parcial)
+- **Resposta de Sucesso:**
+    ```json
+    [
+        {
+            "id": 1,
+            "title": "Minha Primeira Nota",
+            "content": "Conteúdo da nota",
+            "created_at": "2023-05-15T14:00:00.000000Z",
+            "updated_at": "2023-05-15T14:00:00.000000Z"
+        }
+    ]
+    ```
+
+## Observações
+
+- O sistema utiliza **JWT** para autenticação, e é necessário gerar o token de autenticação ao fazer login.
+- Para mais detalhes sobre a implementação, consulte o código-fonte.
