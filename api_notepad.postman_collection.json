@@ -32,7 +32,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Músicas top\",\r\n    \"content\": \"Você pode encontrar milhões de beijos, mais ninguém vai te dar o que eu te dei!\",\r\n    \"category\": \"Exemplo\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Músicasss top\",\r\n    \"content\": \"Você pode encontrar milhões de beijos, mais ninguém vai te dar o que eu te dei!\",\r\n    \"category\": \"Exemplo\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -72,13 +72,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{URL}}/notes/55",
+							"raw": "{{URL}}/notes/delete/1",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"notes",
-								"55"
+								"delete",
+								"1"
 							]
 						}
 					},
@@ -106,7 +107,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"title\" : \"Vamos brincar\",\r\n\t\"content\" : \"De ser feliz! XOROffRÓ e Chitãozinho\",\r\n    \"category\": \"Sim\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Nova Nota\",\r\n    \"content\": \"Novo conteúdo atualizado\",\r\n    \"category\": \"Trabalho\",\r\n    \"favorite\": true,\r\n    \"color\": \"#FFE8AC\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -114,13 +115,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{URL}}/notes/56",
+							"raw": "{{URL}}/notes/update/2",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"notes",
-								"56"
+								"update",
+								"2"
 							]
 						}
 					},
@@ -207,7 +209,7 @@
 					"response": []
 				},
 				{
-					"name": "Share Notes",
+					"name": "Read with ID",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -219,7 +221,7 @@
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "Accept",
@@ -227,23 +229,14 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id_note\":\"56\",\r\n    \"shared_with_user_id\":\"2\",\r\n    \"editor\" : false\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "{{URL}}/notes/share",
+							"raw": "{{URL}}/notes/1",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"notes",
-								"share"
+								"1"
 							]
 						}
 					},
@@ -282,7 +275,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"gualda@email.com\",\r\n    \"password\":\"admin\"\r\n}",
+							"raw": "{\r\n    \"email\": \"gualda@email.com\",\r\n    \"password\":\"adminn\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -314,7 +307,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Teste\",\r\n    \"email\": \"gualda@email.com\",\r\n    \"password\":\"admin\",\r\n    \"telephone\": \"11999232875\",\r\n    \"birth_date\": \"28-12-1980\"\r\n}",
+							"raw": "{\r\n    \"name\":\"Teste\",\r\n    \"email\": \"gualda@email.com\",\r\n    \"password\":\"adminn\",\r\n    \"telephone\": \"11999232875\",\r\n    \"birth_date\": \"28-12-1980\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -421,7 +414,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "/*Colocar o campo que deseja atualizar*/\r\n{\r\n    \"name\": \"Gustavo Gualda\",\r\n    \"email\": \"gualda@email.com\",\r\n    \"password\": \"adminn\",\r\n    \"password_confirmation\": \"adminn\"\r\n}",
+							"raw": "/*Colocar o campo que deseja atualizar*/\r\n{\r\n    \"name\": \"Gustavo Gualda\",\r\n    \"email\": \"gualda@email.com\",\r\n    \"current_password\": \"gualda\",\r\n    \"new_password\": \"adminn\",\r\n    \"new_password_confirmation\": \"adminn\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -442,41 +435,6 @@
 					"response": []
 				},
 				{
-					"name": "Search Users",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{TOKEN}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{URL}}/users/search/as",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"users",
-								"search",
-								"as"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Logout",
 					"request": {
 						"auth": {
@@ -489,7 +447,7 @@
 								}
 							]
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"url": {
 							"raw": "{{URL}}/users/logout",
