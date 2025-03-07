@@ -15,5 +15,5 @@ class Note extends Model
     /** 
      * Campos que aceitam dados em massa
     */
-    protected $fillable = ['title', 'content', 'category', 'id_user'];
+    protected $fillable = ['title', 'content', 'category', 'id_user','favorite', 'color'];
 }

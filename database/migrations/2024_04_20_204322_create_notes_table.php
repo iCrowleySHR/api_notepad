@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id()->unsigned();
             $table->string('title', 70);
             $table->text('content');
+            $table->boolean('favorite')->default(false);
+            $table->enum('color',['#A99A7C','#9DD6FF','#FFA285','#FFE8AC','#979797','#F99494','#DAFF8B','#B9FFDD','#CDCDCD','#FFCAB9','#ECA1FF','#BAE2FF','#FFFF'])->default('#FFFF');
             $table->softDeletes();
             $table->string('category');
             $table->unsignedBigInteger('id_user');

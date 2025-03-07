@@ -19,7 +19,11 @@ class NoteResource extends JsonResource
             'title'         => $this->title,
             'content'       => $this->content,
             'category'      => $this->category,
-            'id_user'       => $this->id_user
+            'id_user'       => $this->id_user,
+            'favorite'      => $this->favorite ? true : false,
+            'color'         => $this->color ?? '#FFFF',
+            'created_at'    => $this->created_at,
+            'updated_at'    => $this->updated_at,
         ];
     }
 }

@@ -25,7 +25,10 @@ class NoteRequest extends FormRequest
             'title' => 'required|max:70',
             'content' => 'required|max:255',
             'category' => 'required|max:255',
+            'favorite' => 'nullable|boolean',
+            'color' => 'nullable|in:#A99A7C,#9DD6FF,#FFA285,#FFE8AC,#979797,#F99494,#DAFF8B,#B9FFDD,#CDCDCD,#FFCAB9,#ECA1FF,#BAE2FF,#FFFF',
         ];
+        
     }
 
     /**
@@ -44,6 +47,8 @@ class NoteRequest extends FormRequest
 
             'category.required' => 'O campo categoria é obrigatório.',
             'category.max'      => 'A categoria não pode ter mais que 255 caracteres.',
+
+            'color.in' => 'A cor selecionada é inválida. Escolha uma das opções permitidas: #A99A7C, #9DD6FF, #FFA285, #FFE8AC, #979797, #F99494, #DAFF8B, #B9FFDD, #CDCDCD, #FFCAB9, #ECA1FF, #BAE2FF, #FFFF.',
         ];
     }
 }
