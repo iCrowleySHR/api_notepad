@@ -24,7 +24,7 @@ class NoteRequest extends FormRequest
         return [
             'title' => 'required|max:70',
             'content' => 'required|max:255',
-            'category' => 'required|max:255',
+            'category' => 'nullable|max:255',
             'favorite' => 'nullable|boolean',
             'color' => 'nullable|in:#A99A7C,#9DD6FF,#FFA285,#FFE8AC,#979797,#F99494,#DAFF8B,#B9FFDD,#CDCDCD,#FFCAB9,#ECA1FF,#BAE2FF,#FFFF',
         ];

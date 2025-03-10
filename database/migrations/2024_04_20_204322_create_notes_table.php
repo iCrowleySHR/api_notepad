@@ -18,7 +18,7 @@ return new class extends Migration
             $table->boolean('favorite')->default(false);
             $table->enum('color',['#A99A7C','#9DD6FF','#FFA285','#FFE8AC','#979797','#F99494','#DAFF8B','#B9FFDD','#CDCDCD','#FFCAB9','#ECA1FF','#BAE2FF','#FFFF'])->default('#FFFF');
             $table->softDeletes();
-            $table->string('category');
+            $table->string('category')->nullable();
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
