@@ -41,6 +41,11 @@ Este repositório também inclui um aplicativo Java que consome a API de Bloco d
     composer require tymon/jwt-auth
     php artisan jwt:secret
     ```
+    
+6. Rode o servidor local:
+    ```bash
+    php artisan serve
+    ```
 
 ## Endpoints
 
