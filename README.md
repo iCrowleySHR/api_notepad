@@ -162,7 +162,9 @@ Este repositório também inclui um aplicativo Java que consome a API de Bloco d
             "title": "Minha Primeira Nota",
             "content": "Conteúdo da nota",
             "created_at": "2023-05-15T14:00:00.000000Z",
-            "updated_at": "2023-05-15T14:00:00.000000Z"
+            "updated_at": "2023-05-15T14:00:00.000000Z",
+            "favorite": false,
+            "color": "#FFFF"
         }
     ]
     ```
@@ -204,6 +206,8 @@ Este repositório também inclui um aplicativo Java que consome a API de Bloco d
         "id": 1,
         "title": "Minha Primeira Nota",
         "content": "Conteúdo da nota",
+        "favorite": false,
+        "color": "#FFFF",
         "created_at": "2023-05-15T14:00:00.000000Z",
         "updated_at": "2023-05-15T14:00:00.000000Z"
     }
@@ -255,7 +259,9 @@ Este repositório também inclui um aplicativo Java que consome a API de Bloco d
             "title": "Minha Primeira Nota",
             "content": "Conteúdo da nota",
             "created_at": "2023-05-15T14:00:00.000000Z",
-            "updated_at": "2023-05-15T14:00:00.000000Z"
+            "updated_at": "2023-05-15T14:00:00.000000Z",
+            "favorite": false,
+            "color": "#FFFF",
         }
     ]
     ```
