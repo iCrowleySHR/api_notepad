@@ -2,11 +2,12 @@
 
 Esta é uma API para um bloco de notas simples, construída usando Laravel. A API permite aos usuários autenticados criar, ler, atualizar e deletar notas. Também oferece funcionalidades de registro, login e gerenciamento de contas de usuário com autenticação via JWT.
 
-## Aplicativo Java
+## Aplicativo Java e WEB
 
-Este repositório também inclui um aplicativo Java que consome a API de Bloco de Notas. O aplicativo permite que você interaja com a API de maneira simples e eficiente.
+Este repositório também inclui um aplicativo Java e WEB que consome a API de Bloco de Notas. O aplicativo permite que você interaja com a API de maneira simples e eficiente.
 
 - **Repositório do Aplicativo Java:** [Clique aqui para acessar o repositório](https://github.com/iCrowleySHR/notepad.git)
+- **Repositório da aplicação Web:** [Clique aqui para acessar o repositório](https://github.com/iCrowleySHR/testeTecnicoFrontCoreLab.git)
 
 
 
